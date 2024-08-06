@@ -1,139 +1,199 @@
 /*
 *****************************
-******  Google font  ********
+******  Font Family ********
 *****************************
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
+@font-face {
+  font-family: "Beiruti";
+  src: url("../fonts/Beiruti/Beiruti-VariableFont_wght.ttf");
+}
 /*
 *****************************
 ******  Global Style ********
 *****************************
 */
+:root {
+  --bg-color-1: #021020;
+  --bg-color-2: #061828;
+  --bg-color-3: #081f35;
+  --bg-color-4: #0d2f4e;
+  --secondary-color: #1d78c9;
+  --primary-color: #00bcd4;
+  --text-color: #f0ffff;
+  
+  --sp-1: 66px;
+  --sp-2: 44px;
+  --sp-3: 22px;
+  --sp-4: 11px;
+
+  --fs-1: 36px;
+  --fs-2: 28px;
+  --fs-3: 24px;
+  --fs-4: 20px;
+}
 html{
   scroll-behavior: smooth;
 }
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
+      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
 ::selection {
-  background: #1d78c9;
-  color: #fff;
+  background: var(--secondary-color);
+  color: var(--text-color);
 }
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #081f35;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #1d78c9;
-  border-radius: 5px;
-}
+  background-color: var(--secondary-color);
+}  
 body {
-  font: 300 16px/24px "Ubuntu","sans-serif";
-  color: #999;
-  background: #061828;
+  font: 400 18px/var(--sp-3) "Beiruti";
+  background: var(--bg-color-1);
+  word-spacing: 4px;
+  color: var(--text-color);
 }
 .container{
   max-width: 1100px;
   padding-left: 30px;
   padding-right: 30px;
   margin: 0 auto;
+  @media (max-width: 500px) {
+      padding-left: 16px;
+      padding-right: 16px;
+  }
 }
-.sec-bg {
-  background-color: #081f35;
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.secondary-bg {
+  background-color: var(--bg-color-2);
+}
+.third-bg {
+  background: linear-gradient(to left, var(--bg-color-1), var(--bg-color-2));
+}
+.section {
+  padding-top: var(--sp-2);
+  padding-bottom: var(--sp-2);
 }
 a {
-  color: #1d78c9;
+  transition-duration: .3s;
+  color: var(--secondary-color);
+}
+a:hover {
+  color: var(--primary-color);
+}
+a,
+abbr {
   text-decoration: none;
 }
 /*
 *****************************
-******  Typography ********
+******** Typography *********
 *****************************
 */
-h1,
 h2,
 h3,
-p {
-  margin-bottom: 24px;
+h4 {
+  color: var(--secondary-color);
+  font-weight: 500;
 }
-h1,
-h3 {
-  color: #1d78c9;
-}
-h1{
-  font-size: 36px;
-  line-height: 44px;
+h1 {
+  color: var(--primary-color);
+  font-size: var(--fs-1);
+  line-height: var(--sp-2);
   font-weight: 400;
-}
-h2,
-h3 {
-  font-weight: 300;
+  margin-bottom: var(--sp-3);
 }
 h2 {
-  font-size: 32px;
-  line-height: 44px;
-}
-h3 {
-  font-size: 20px;
-}
-/*
-*****************************
-******  Navigation ********
-*****************************
-*/
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px 0;
-  text-align: right;
-}
-nav li {
-  display: inline-block;
-  margin-left: 24px;
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: .5px;
-}
-/*
-*****************************
-******  Home Style ********
-*****************************
-*/
-main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-size: var(--fs-2);
+  margin-bottom: var(--sp-2);
   text-align: center;
 }
-main p {
-  font-size: 24px;
-  line-height: 48px;
+h3 {
+  font-size: var(--fs-3);
+  line-height: var(--fs-3);
+  margin-bottom: var(--sp-3);
 }
-main .links {
+h4 {
+  font-size: var(--fs-4);
+  margin-bottom: var(--sp-4);
+}
+/*
+*****************************
+********** Header ***********
+*****************************
+*/
+.header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: var(--sp-3);
+  padding-bottom: var(--sp-3);
 }
-.links a {
+.header img {
+  height: var(--sp-2);
+}
+.nav ul{
+  gap: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+.nav a {
+  color: var(--text-color);
+}
+.nav a:hover {
+  color: var(--primary-color);
+}
+/*
+*****************************
+***********  Home ***********
+*****************************
+*/
+.home {
+  text-align: center;
+  padding-top: var(--sp-1);
+  padding-bottom: var(--sp-1);
+}
+.home p{
+  font-size: var(--sp-3);
+  line-height: calc(var(--fs-3) * 3 / 2);
+  font-weight: 300;
+}
+/*
+*****************************
+******  About ********
+*****************************
+*/
+.about ul {
+  list-style: disc inside;
+}
+.about section ul {
+  margin-bottom: var(--sp-3);
+}
+.about .grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #081f35;
-  border-radius: 24px;
-  padding: 12px;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: var(--sp-3);
+  @media (max-width: 760px) {
+      flex-direction: column;
+  }
 }
-.links a:hover {
-  background: #0d2f4e;
+.about .grid :first-child {
+  min-width: 255px;
+}
+.about ul li:not(:last-child) {
+  margin-bottom: calc(var(--sp-4) / 2);
 }
 /*
 *****************************
@@ -141,67 +201,108 @@ main .links {
 *****************************
 */
 .skills {
-	padding-top: 48px;
-	padding-bottom: 72px;
-  margin: auto;
+  padding-bottom: 72px;
 }
-
-.skills h2 {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.skills-list{
-  display: flex;
+.skills-list {
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
+  gap: var(--sp-3); 
 }
 .card {
-	padding: 24px;
-	text-align: center;
-  background-color: #081f35;
-	border-radius: 5px;
-  min-width: 200px;
-  transition-duration: .3s;
+  background-color: var(--bg-color-3);
+  border-radius: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  padding: var(--sp-3);
+  gap: var(--sp-4);
+  width: 100%;
+  max-width: 200px;
+  transition-duration: .2s;
 }
-.card:hover,
-.card:focus-within {
-  background-color: #0d2f4e;
-  transform: translateY(12px);
-}
-.card i{
-	font-size: 92px;
-	line-height: 92px;
+.card i {
+  font-size: calc(var(--fs-1) * 2);
 }
 .card h3 {
-  text-transform: uppercase;
-	font-size: 26px;
-	margin-top: 24px;
+  margin-bottom: 0;
+  color: var(--text-color);
 }
-
-.git i,
-.html i {
+.card:hover {
+  background-color: var(--bg-color-4);
+  transform: translateY(-12px);
+}
+.card i {
+  font-size: 92px;
+}
+.html {
   color: orangered;
 }
-.css i {
-  color: blue;
+.css {
+  color: var(--secondary-color);
 }
-.js i {
+.js {
   color: yellow;
+}
+.git {
+  color: orangered;
+}
+.flask {
+  color: #808080;
 }
 /*
 *****************************
-******  Skills ********
+**********  Footer **********
 *****************************
 */
-footer {
-  padding-top: 48px;
-  padding-bottom: 48px;
-  text-align: center;
-}
-footer .container {
-  display: flex;
-  align-items: center;
+.footer {
   justify-content: space-between;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: calc(var(--sp-2) / 2);
+  }
+}
+.footer .links {
+  gap: calc(var(--sp-3) / 2);
+}
+.links a {
+  background-color: var(--bg-color-3);
+  font-size: 22px;
+  display: flex;
+  padding: calc(var(--sp-3) / 2);
+  border-radius: 50%;
+}
+.links a:hover {
+  background-color: var(--bg-color-4);
+}  
+/*
+*****************************
+******  To Top btn ********
+*****************************
+*/
+.top-btn {
+  position: fixed;
+  bottom: calc(var(--sp-2) * 2);
+  right: 38px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  font-size: 24px;
+  z-index: 12;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: .3s;
+  @media (max-width: 600px) {
+    bottom: var(--sp-3);
+    right: var(--sp-3);
+  }
+}
+.top-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+.top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-22px);
 }
